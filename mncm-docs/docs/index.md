@@ -1,17 +1,5 @@
-# Welcome to MkLorum
+# Mobile Network Capacity Model
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Background
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+The Mobile Network Capacity Model is a tool that allows for the calculation of available throughput within a 4G mobile network service area and indicates whether this throughput is sufficient to connect a point of interest (POI: hospital, school, house, etc.) to the internet by comparing the available throughput with the POI's requirements.
