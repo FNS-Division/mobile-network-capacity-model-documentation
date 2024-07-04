@@ -1,0 +1,5 @@
+site_name: Mobile network capacity model
+nav:
+  - Home: index.md
+  - About: about.md
+theme: readthedocs
