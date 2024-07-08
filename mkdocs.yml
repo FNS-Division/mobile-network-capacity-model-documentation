@@ -1,6 +1,8 @@
 site_name: Mobile network capacity model
 nav:
   - Home: index.md
-  - About: about.md
+  - Installation: installation.md       
+  - Link Budget Model: "models-description/rmalos-calculation.md"
+  - Network capacity Model: "models-description/capacity-calculation.md"
   - License: license.md
 theme: readthedocs
