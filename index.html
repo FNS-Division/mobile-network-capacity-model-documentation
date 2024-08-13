@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Mobile network capacity model</title>
+    <title>Mobile Network Capacity Model</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -30,7 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> Mobile network capacity model
+          <a href="." class="icon icon-home"> Mobile Network Capacity Model
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -42,21 +42,17 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#about">About</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#repository-structure">Repository structure</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#summary-of-methods">Summary of methods</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#installation-steps">Installation Steps</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#keeping-analysis-outputs-private">Keeping analysis outputs private</a>
+    <li class="toctree-l2"><a class="reference internal" href="#background">Background</a>
     </li>
     </ul>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="" href="installation.md">Installation</a>
+                <li class="toctree-l1"><a class="reference internal" href="user-guide/getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="models-description/capacity-for-pois-calculation/">Capacity Checker</a>
                 </li>
               </ul>
               <ul>
@@ -78,7 +74,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href=".">Mobile network capacity model</a>
+          <a href=".">Mobile Network Capacity Model</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -95,93 +91,13 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="mobile-network-capacity-model">Mobile Network Capacity Model</h1>
-<h2 id="about">About</h2>
-<p>The Mobile Network Capacity Model is a special tool that can figure out if the internet connection from a cell phone tower is strong enough to let places like hospitals, schools, and houses (which we call points of interest, or POIs) use the internet without any problems. This tool checks to see if there is enough bandwidth for everyone who needs it.</p>
-<p>The example picture below is a map. It shows where the cell phone towers are, the zones around them where people can use their phones, how many people live there, and where important places like hospitals and schools are located. The tool uses the map and colours to tell us if these important places can get enough bandwidth from the towers to use the internet properly. Red means there's not enough bandwidth, and green means there is.</p>
-<p><img alt="mcsc_sufficiency_check" src="img/mcsc_sufficiency_check.png" /></p>
-<h2 id="repository-structure">Repository structure</h2>
-<pre><code class="language-sh">mobile-network-capacity-model
-├── README.md
-├── app.py
-├── data
-│   ├── input_data
-│   │   ├── ESP-1697916284-6wv8-cellsite.csv
-│   │   ├── ESP-1708423221-tgah-visibility.csv
-│   │   ├── MobileBB_Traffic_per_Subscr_per_Month.csv
-│   │   ├── active-mobile-broadband-subscriptions_1711147050645.csv
-│   │   ├── area.gpkg
-│   │   ├── bwdistance_km.csv
-│   │   ├── bwdlachievbr_kbps.csv
-│   │   ├── bwrsrp_dbm.csv
-│   │   ├── bwulachievbr_kbps.csv
-│   │   ├── mobile-broadband-internet-traffic-within-the-country_1711147118571.csv
-│   │   └── population.tif
-│   └── output_data
-│       ├── MobileBB_Traffic_per_Subscr_per_Month.csv
-│       └── network_capacity.csv
-├── environment.yml
-├── logs
-│   └── app_timestamp.log
-├── mobile_capacity
-│   ├── capacity.py
-│   └── spatial.py
-├── notebooks
-│   └── analyses.ipynb
-└── tests
-    ├── confest.py
-    └── unit
-        └── test_class.py
-</code></pre>
-<h2 id="summary-of-methods">Summary of methods</h2>
-<p><img alt="capacity_checker" src="img/capacity_checker.drawio.png" /></p>
-<h2 id="installation-steps">Installation Steps</h2>
-<ol>
-<li><strong>Clone the Repository:</strong>
-    Clone the repository to your local machine using the following command:</li>
-</ol>
-<pre><code class="language-bash">git clone git@ssh.dev.azure.com:v3/ITUINT/ConnectivityToolkit/mobile-network-capacity-model
-</code></pre>
-<ol>
-<li><strong>Navigate to the directory:</strong></li>
-</ol>
-<pre><code class="language-bash">cd mobile-network-capacity-model
-</code></pre>
-<ol>
-<li><strong>Create a virtual environment with the required dependencies via <a href="https://www.anaconda.com/download">conda</a>:</strong><br><br></li>
-</ol>
-<pre><code class="language-bash">conda install -n base conda-libmamba-solver
-conda env create --file environment.yml --solver libmamba
-conda activate mobilecapacityenv
-</code></pre>
-<ol>
-<li>
-<p><strong>Run analysis in notebooks</strong><br><br>
-Run the analysis in <code>notebooks/app.ipynb</code></p>
-</li>
-<li>
-<p><strong>Deploy streamlit app locally</strong><br><br></p>
-</li>
-</ol>
-<pre><code class="language-bash">conda activate mobilecapacityenv
-streamlit run app.py
-</code></pre>
-<p>Use keyborad shortcut <code>Ctrl+C</code> to terminate the local deployment.</p>
-<h2 id="keeping-analysis-outputs-private">Keeping analysis outputs private</h2>
-<p>To ensure that all Jupyter Notebook outputs are cleared before committing changes to the repository, we use <code>nbstripout</code>. By following these instructions, contributors to your project will ensure that Jupyter Notebook outputs are cleared before committing changes, helping to keep the repository clean and free of unnecessary data. Follow the steps below to install and enable <code>nbstripout</code>.</p>
-<p>First, you'll need to install nbstripout. You can do this using <code>pip</code>:</p>
-<pre><code class="language-bash">pip install nbstripout
-</code></pre>
-<p>Once <code>nbstripout</code> is installed, you need to enable it for your Git repository. Run the following command in the root directory of your repository:</p>
-<pre><code class="language-bash">nbstripout --install
-</code></pre>
-<p>This will configure nbstripout to automatically strip output from Jupyter Notebooks when you commit them to your repository.</p>
-<pre><code class="language-bash">nbstripout --status
-</code></pre>
+<h2 id="background">Background</h2>
+<p>The Mobile Network Capacity Model is a tool that allows for the calculation of available throughput within a 4G mobile network service area and indicates whether this throughput is sufficient to connect a point of interest (POI: hospital, school, house, etc.) to the internet by comparing the available throughput with the POI's requirements.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="models-description/rmalos-calculation/" class="btn btn-neutral float-right" title="Link Budget Model">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="user-guide/getting-started/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -205,7 +121,7 @@ streamlit run app.py
     
     
     
-      <span><a href="models-description/rmalos-calculation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="user-guide/getting-started/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
@@ -225,5 +141,5 @@ streamlit run app.py
 
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-07-10 10:50:12.334561+00:00
+Build Date UTC : 2024-08-13 10:56:38.955812+00:00
 -->
