@@ -50,11 +50,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../input-data/">Input data</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../input-data/">Preparing your input data</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../models-description/capacity-for-pois-calculation/">Capacity Checker</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../models-description/capacity-for-pois-calculation/">Network Capacity Model</a>
                 </li>
               </ul>
               <ul>
@@ -62,7 +62,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../models-description/capacity-calculation/">Network capacity Model</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../models-description/functions-documentation/">Functions documentation</a>
                 </li>
               </ul>
               <ul>
@@ -126,27 +126,39 @@ jupyter --version
 <pre><code class="language-bash">conda env create --file environment.yml
 conda activate mobilecapacityenv
 </code></pre>
+<h2 id="preparing-your-data">Preparing your data</h2>
+<p>In order to conduct your analysis, you will need to provide the tool with the following geospatial data in CSV format:</p>
+<ul>
+<li>Points of interest locations</li>
+<li>Cell site locations</li>
+</ul>
+<p>See the <code>input_data</code> section of this documentation page for more information.</p>
+<p>It is also possible to provide data on the visibility status between each point of interest and cell site, but this is not a requirement as the checker automates these calculations in the background.</p>
 <h2 id="running-your-analysis">Running your analysis</h2>
 <p>To conduct your analysis using the Mobile Network Capacity Model, follow these steps:</p>
 <ol>
 <li>
-<p>Prepare Your Data: 
-   Place your input data files in the <code>data/input_data</code> directory. Ensure your data is in the correct format as specified in the technical documentation.</p>
+<p><strong>Prepare Your Data</strong>: 
+   Place your input data files in the <code>data/input_data/&lt;country-code&gt;</code> directory. For example, for Spain, include your geospatial data in CSV format in sub-folder <code>data/input_data/ESP</code>. Use <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO-3 three-letter codes</a> to identify your country. Ensure your data is in the correct format as specified in the technical documentation.</p>
 </li>
 <li>
-<p>Configure Analysis Parameters: 
-   Open the <code>notebooks/analyses.ipynb</code> notebook. Locate the configuration cell and adjust the parameters according to your specific analysis requirements.</p>
+<p><strong>Create a Jupyter Notebook to run your analysis</strong>:
+   Copy the notebook template from <code>notebooks/template.ipynb</code>, and insert the copy in the folder <code>notebooks</code>. For example, <code>notebooks/my_analysis.ipynb</code>.</p>
 </li>
 <li>
-<p>Execute the Analysis:
-   Run through the notebook cells sequentially. Each cell contains explanations and code for different stages of the analysis.</p>
+<p><strong>Configure Analysis Parameters</strong>: 
+   In your analysis notebook (for example, <code>notebooks/my_analysis.ipynb</code>) locate the configuration cells and adjust the parameters according to your specific analysis requirements.</p>
 </li>
 <li>
-<p>Review Results: 
-   After execution, find your output data and visualizations in the <code>data/output_data</code> directory. The notebook will also display key results and graphs inline.</p>
+<p><strong>Execute the Analysis</strong>:
+   Run through the notebook cells sequentially. Each cell contains explanations and code for different stages of the analysis. During the analysis run, auxiliary files related to topography (Source: <a href="https://portal.opentopography.org/raster?opentopoID=OTSRTM.082015.4326.1">NASA</a>) and population (Source: <a href="https://www.worldpop.org/">Worldpop</a>) in the area covered by the points of interest and cell sites will automatically be downloaded into the <code>data/input_data/&lt;country-code&gt;</code> folder (in sub-folders called <code>srtm1</code> and <code>population</code>). You do not need to directly manipulate these files.</p>
 </li>
 <li>
-<p>Iterate if Necessary: 
+<p><strong>Review Results</strong>: 
+   After execution, find your output data and visualizations in the <code>data/output_data/&lt;country-code&gt;</code> directory. The notebook will also display key results and graphs inline.</p>
+</li>
+<li>
+<p><strong>Iterate if Necessary</strong>: 
    Based on your initial results, you may want to adjust parameters or input data. Simply update the relevant sections and re-run the affected cells or the entire notebook.</p>
 </li>
 </ol>
@@ -155,7 +167,7 @@ conda activate mobilecapacityenv
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../.." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../input-data/" class="btn btn-neutral float-right" title="Input data">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../input-data/" class="btn btn-neutral float-right" title="Preparing your input data">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>

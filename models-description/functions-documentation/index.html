@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Functions documentation - Mobile Network Capacity Model</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Functions documentation";
+        var mkdocs_page_input_path = "models-description/functions-documentation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Mobile Network Capacity Model
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../user-guide/getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../input-data/">Preparing your input data</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../capacity-for-pois-calculation/">Network Capacity Model</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../rmalos-calculation/">Link Budget Model</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Functions documentation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#functionalities-and-calculations">Functionalities and Calculations</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#initializing-the-class-init">Initializing the class (init)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#downlink-bitrate-get_dl_bitrate">Downlink Bitrate (get_dl_bitrate)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resource-blocks-requirement-calculation-poiddatareq">Resource Blocks Requirement Calculation (poiddatareq)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bitrate-per-resource-block-calculation-brrbpopcd">Bitrate Per Resource Block Calculation (brrbpopcd)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#average-user-bitrate-in-non-busy-hour-calculation-avubrnonbh">Average User Bitrate in Non-Busy Hour Calculation (avubrnonbh)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#user-population-bitrate-per-sector-upopbr">User Population Bitrate Per Sector (upopbr)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#user-population-resource-blocks-utilisation-upoprbu">User Population Resource Blocks Utilisation (upoprbu)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cell-site-available-capacity-check-cellavcap">Cell Site Available Capacity Check (cellavcap)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sufficient-capacity-checker-sufcapch">Sufficient Capacity Checker (sufcapch)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#capacity-checker-capacity_checker">Capacity Checker (capacity_checker)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#capacity-checker-using-buffers-around-cell-sites-calculate_buffer_areas">Capacity Checker Using Buffers Around Cell Sites (calculate_buffer_areas)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../license/">License</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Mobile Network Capacity Model</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Functions documentation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="detailed-functions-documentation">Detailed Functions Documentation</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The <code>Capacity</code> class is designed for analyzing and calculating mobile network capacity in a given area. It provides methods to analyze cell site coverage, population distribution, and network capacity based on various parameters such as bandwidth, spectrum allocation, and user data consumption.</p>
+<h2 id="functionalities-and-calculations">Functionalities and Calculations</h2>
+<h3 id="initializing-the-class-init">Initializing the class (<code>init</code>)</h3>
+<p>To initialize the class, you need to provide the following parameters:</p>
+<ul>
+<li><strong>country_code</strong> (<code>str</code>): ISO3 country code for the area of analysis.</li>
+<li><strong>data_dir</strong> (<code>str</code>): Directory path for input data.</li>
+<li><strong>logs_dir</strong> (<code>str</code>): Directory path for logs.</li>
+<li><strong>poi</strong> (<code>PointOfInterestCollection</code>): Collection of points of interest.</li>
+<li><strong>cellsites</strong> (<code>CellSiteCollection</code>): Collection of cell sites.</li>
+<li><strong>bw_L850</strong> (<code>float</code>): Bandwidth in MHz for L700 to L900 spectrum.</li>
+<li><strong>bw_L1800</strong> (<code>float</code>): Bandwidth in MHz for L1800 to L2100 spectrum.</li>
+<li><strong>bw_L2600</strong> (<code>float</code>): Bandwidth in MHz for L2300 to L2600 spectrum.</li>
+<li><strong>cco</strong> (<code>float</code>): Control channel overhead in percentage.</li>
+<li><strong>max_radius</strong> (<code>int</code>): Maximum buffer radius for analysis.</li>
+<li><strong>min_radius</strong> (<code>int</code>): Minimum buffer radius for analysis.</li>
+<li><strong>radius_step</strong> (<code>int</code>): Step size for buffer radius increments.</li>
+<li><strong>angles_num</strong> (<code>int</code>): Number of angles for analysis.</li>
+<li><strong>rotation_angle</strong> (<code>float</code>): Rotation angle in degrees.</li>
+<li><strong>dlthtarg</strong> (<code>float</code>): Download throughput target in Mbps.</li>
+<li><strong>nonbhu</strong> (<code>float</code>): Connection usage in non-busy hours in percentage.</li>
+<li><strong>mbb_subscr</strong> (<code>float</code>): Active mobile-broadband subscriptions per 100 people.</li>
+</ul>
+<p>You also need to provide the following parameters, although these already come with default values:</p>
+<ul>
+<li><strong>use_secure_files</strong> (<code>bool</code>, optional): Flag to use secure files for bandwidth data. Default is <code>False</code>.</li>
+<li><strong>sectors_per_site</strong> (<code>int</code>, optional): Number of sectors per cell site. Default is <code>3</code>.</li>
+<li><strong>cellsite_search_radius</strong> (<code>int</code>, optional): Cell site search radius in meters. Default is <code>35000</code>.</li>
+<li><strong>poi_antenna_height</strong> (<code>int</code>, optional): Point of interest antenna height in meters. Default is <code>15</code>.</li>
+<li><strong>rb_num_multiplier</strong> (<code>int</code>, optional): Resource block number multiplier. Default is <code>5</code>.</li>
+<li><strong>visibility</strong> (<code>VisibilityPairCollection</code>, optional): Collection of visibility pairs. Default is <code>None</code>.</li>
+<li><strong>area</strong> (<code>gpd.GeoDataFrame</code>, optional): Area of interest. Default is <code>None</code>.</li>
+<li><strong>dataset_year</strong> (<code>int</code>, optional): Year of the dataset being used. Default is <code>2020</code>.</li>
+<li><strong>one_km_res</strong> (<code>bool</code>, optional): Flag for using 1km resolution data. Default is <code>True</code>.</li>
+<li><strong>un_adjusted</strong> (<code>bool</code>, optional): Flag for using UN-adjusted data. Default is <code>True</code>.</li>
+<li><strong>nbhours</strong> (<code>int</code>, optional): Number of non-busy hours per day. Default is <code>10</code>.</li>
+<li><strong>oppopshare</strong> (<code>int</code>, optional): Percentage of population using operator services. Default is <code>50</code>.</li>
+<li><strong>enable_logging</strong> (<code>bool</code>, optional): Flag to enable logging. Default is <code>False</code>.</li>
+</ul>
+<h3 id="downlink-bitrate-get_dl_bitrate">Downlink Bitrate (<code>get_dl_bitrate</code>)</h3>
+<p>This method calculates the achievable downlink bitrate for given <strong>distances</strong>, considering multiple frequency bands (L850, L1800, L2600) and their respective bandwidths.</p>
+<ul>
+<li>The input is a list, numpy array, or pandas Series containing distances in meters.</li>
+<li>The output is a numpy array of downlink bitrates (in kbps) corresponding to each input distance.</li>
+<li>For each frequency band:</li>
+<li>Uses lookup tables to find bitrates corresponding to input distances.</li>
+<li>Handles out-of-range distances by assigning NaN values.</li>
+<li>Computes final bitrates as a weighted sum across all frequency bands.</li>
+</ul>
+<h3 id="resource-blocks-requirement-calculation-poiddatareq">Resource Blocks Requirement Calculation (<code>poiddatareq</code>)</h3>
+<p>The <code>poiddatareq</code> method is designed to calculate the number of resource blocks (RBs) necessary to meet a specific download throughput target at a certain distance from a cell site. This method is integral to network capacity analysis as it helps determine if a cell site can provide the required service level at varying distances. The method proceeds as follows:  </p>
+<ul>
+<li>It first checks whether the provided distance exceeds the maximum coverage radius of the cell site. If it does, the method concludes that the download throughput target cannot be met at that distance, and an infinite number of RBs are theoretically required.  </li>
+<li>If the distance is within the acceptable range, the method searches for the achievable downlink bitrate at a given distance using the <code>get_dl_bitrate</code> function.  </li>
+<li>The method then calculates the required number of RBs by dividing the download throughput target (converted to kbps) by the achievable bitrate per RB (accounting for the average number of RBs available for PDSCH).  </li>
+</ul>
+<p>This method is vital for assessing the coverage and capacity limitations of a cell site and is instrumental in network planning and optimization efforts.  </p>
+<h3 id="bitrate-per-resource-block-calculation-brrbpopcd">Bitrate Per Resource Block Calculation (<code>brrbpopcd</code>)</h3>
+<p>The <code>brrbpopcd</code> method calculates the bitrate available per resource block at a specified population center distance. This is a key performance indicator that reflects how the network's capacity is distributed spatially. The method involves the following steps:  </p>
+<ul>
+<li>Using <code>get_dl_bitrate</code>, the method identifies the closest distance value that exceeds the given population center distance.  </li>
+<li>It retrieves the achievable bitrate associated with that distance for the specified bandwidth.  </li>
+<li>The method then divides the retrieved achievable bitrate by the average number of resource blocks available for PDSCH to determine the bitrate per resource block at the population center distance.  </li>
+</ul>
+<p>This method is crucial for network performance analysis as it helps to gauge the efficiency of resource block usage in relation to the distance from the cell site, directly impacting the user experience.  </p>
+<h3 id="average-user-bitrate-in-non-busy-hour-calculation-avubrnonbh">Average User Bitrate in Non-Busy Hour Calculation (<code>avubrnonbh</code>)</h3>
+<p>The <code>avubrnonbh</code> method computes the average bitrate experienced by a user during non-busy hours, providing an estimate of network capacity when it is not heavily loaded. The calculation is based on user data consumption patterns and considers the following parameters:  </p>
+<ul>
+<li>The average user data traffic volume per month (<code>udatavmonth</code>) expressed in gigabytes.  </li>
+<li>The percentage of network usage that occurs during non-busy hours (<code>nonbhu</code>).  </li>
+</ul>
+<p>The method carries out a sequence of operations to transform the monthly data volume into an hourly rate, adjusting for the percentage of usage during non-busy hours, and converting the final figure into kilobits per second. The formula takes into account the average number of days in a month, the number of non-busy hours per day, and the conversion factors between gigabytes and kilobits.</p>
+<p>This metric is of significant value for network operators to ensure that their networks are equipped to handle user demands during off-peak times, which is essential for maintaining a high quality of service.</p>
+<h3 id="user-population-bitrate-per-sector-upopbr">User Population Bitrate Per Sector (<code>upopbr</code>)</h3>
+<p>This method calculates the total bitrate needed to serve a given population within a cell sector, taking into account the average user bitrate, mobile broadband subscription rate, and the operator's market share.</p>
+<ul>
+<li>Its inputs are the average user bitrate in non-busy hour in kbps (<code>avubrnonbh</code>) and the total population in the area served by the cell sector.</li>
+<li>Its output is the user Population Bitrate in kbps.</li>
+</ul>
+<h3 id="user-population-resource-blocks-utilisation-upoprbu">User Population Resource Blocks Utilisation (<code>upoprbu</code>)</h3>
+<p>This method calculates the number of resource blocks utilized by the user population in a cell sector.</p>
+<ul>
+<li>Its inputs are the total bitrate required by the user population in kbps (<code>upopbr</code>) and the bitrate per resource block at population center distance in kbps (<code>brrbpopcd</code>).`</li>
+<li>Its output is the user population resource blocks utilisation in units.</li>
+</ul>
+<h3 id="cell-site-available-capacity-check-cellavcap">Cell Site Available Capacity Check (<code>cellavcap</code>)</h3>
+<p>This method calculates the available capacity at a cell site by subtracting the utilized resource blocks from the total available resource blocks.</p>
+<ul>
+<li>Its inputs are the number of resource blocks available for the Physical Downlink Shared Channel (<code>avrbpdsch</code>) and the number of resource blocks utilized by the user population (<code>upoprbu</code>).`</li>
+<li>The output is the The available capacity at the cell site.</li>
+</ul>
+<h3 id="sufficient-capacity-checker-sufcapch">Sufficient Capacity Checker (<code>sufcapch</code>)</h3>
+<p>This method determines whether the available capacity at a cell site is sufficient to meet the required download throughput target.</p>
+<ul>
+<li>Its inputs are the available capacity at the cell site (<code>cellavcap</code>) and the Resource Blocks Download Throughput Target (<code>rbdlthtarg</code>).</li>
+<li>The output is a True/False flag indicating whether there is sufficient capacity (cellavcap &gt; rbdlthtarg) or not (cellavcap &lt;= rbdlthtarg).</li>
+</ul>
+<h3 id="capacity-checker-capacity_checker">Capacity Checker (<code>capacity_checker</code>)</h3>
+<p>This method performs a comprehensive capacity check for a cell site, combining the auxiliary functions above.</p>
+<ul>
+<li>Its inputs are:<ul>
+<li>Distance to the Point of Interest (<code>d</code>)</li>
+<li>Population center distance (<code>popcd</code>)</li>
+<li>Monthly data usage per user (<code>udatavmonth</code>)</li>
+<li>Population served by the cell site (<code>pop</code>)</li>
+</ul>
+</li>
+<li>The method calculates several intermediate values:<ul>
+<li>Target data rate based on distance (<code>rbdlthtarg</code>)</li>
+<li>Bitrate per resource block at population center (<code>brrpopcd</code>)</li>
+<li>Average user bitrate in non-busy hours (<code>avubrnonbh</code>)</li>
+</ul>
+</li>
+<li>It then uses these to compute the final outputs:<ul>
+<li>User population bitrate (<code>upopbr</code>)</li>
+<li>User population resource block utilization (<code>upoprbu</code>)</li>
+<li>Available cell capacity (<code>cellavcap</code>)</li>
+<li>Capacity check result (<code>capcheck</code>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="capacity-checker-using-buffers-around-cell-sites-calculate_buffer_areas">Capacity Checker Using Buffers Around Cell Sites (<code>calculate_buffer_areas</code>)</h3>
+<p>This method performs spatial analysis and capacity assessment for cell sites by creating buffer areas and calculating various metrics. For more information, please refer to the <code>Network Capacity Model</code> section of this documentation. The method doesn't take any inputs beyond the class attributes. It performs several key operations:</p>
+<ul>
+<li>
+<p>Geodata preparation</p>
+<ul>
+<li>Buffer and ring creation around cell sites</li>
+<li>Visibility analysis (if needed)</li>
+<li>Capacity calculations at different levels</li>
+</ul>
+</li>
+<li>
+<p>The method calculates several intermediate values:</p>
+<ul>
+<li>Voronoi polygons for cell sites</li>
+<li>Buffer areas and rings around cell sites</li>
+<li>Visibility between POIs and cell sites</li>
+<li>Population per ring</li>
+<li>Resource block requirements for download throughput</li>
+</ul>
+</li>
+<li>
+<p>It then uses these to compute the final outputs:</p>
+<ul>
+<li>User population bitrate per ring</li>
+<li>User population resource block utilization</li>
+<li>Available cell capacity</li>
+<li>Capacity sufficiency check</li>
+</ul>
+</li>
+<li>
+<p>The output is a tuple containing:'</p>
+<ul>
+<li>A dictionary of GeoDataFrames:<ul>
+<li>'buffers': Buffer areas around cell sites</li>
+<li>'rings': Ring areas around cell sites</li>
+</ul>
+</li>
+<li>A GeoDataFrame of POIs within cell site coverage areas, including capacity analysis results</li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../rmalos-calculation/" class="btn btn-neutral float-left" title="Link Budget Model"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../license/" class="btn btn-neutral float-right" title="License">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../rmalos-calculation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../license/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
