@@ -2,9 +2,9 @@ site_name: Mobile Network Capacity Model
 nav:
   - Home: index.md
   - Getting started: "user-guide/getting-started.md"
-  - Input data: "input-data.md"
-  - Capacity Checker: "models-description/capacity-for-pois-calculation.md"
+  - Preparing your input data: "input-data.md"
+  - Network Capacity Model: "models-description/capacity-for-pois-calculation.md"
   - Link Budget Model: "models-description/rmalos-calculation.md"
-  - Network capacity Model: "models-description/capacity-calculation.md"
+  - Functions documentation: "models-description/functions-documentation.md"
   - License: license.md
 theme: readthedocs

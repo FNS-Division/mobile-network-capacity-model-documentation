@@ -42,21 +42,35 @@ conda env create --file environment.yml
 conda activate mobilecapacityenv
 ```
 
+## Preparing your data
+
+In order to conduct your analysis, you will need to provide the tool with the following geospatial data in CSV format:
+
+- Points of interest locations
+- Cell site locations
+
+See the `input_data` section of this documentation page for more information.
+
+It is also possible to provide data on the visibility status between each point of interest and cell site, but this is not a requirement as the checker automates these calculations in the background.
+
 ## Running your analysis
 
 To conduct your analysis using the Mobile Network Capacity Model, follow these steps:
 
-1. Prepare Your Data: 
-   Place your input data files in the `data/input_data` directory. Ensure your data is in the correct format as specified in the technical documentation.
+1. **Prepare Your Data**: 
+   Place your input data files in the `data/input_data/<country-code>` directory. For example, for Spain, include your geospatial data in CSV format in sub-folder `data/input_data/ESP`. Use [ISO-3 three-letter codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) to identify your country. Ensure your data is in the correct format as specified in the technical documentation.
 
-2. Configure Analysis Parameters: 
-   Open the `notebooks/analyses.ipynb` notebook. Locate the configuration cell and adjust the parameters according to your specific analysis requirements.
+2. **Create a Jupyter Notebook to run your analysis**:
+   Copy the notebook template from `notebooks/template.ipynb`, and insert the copy in the folder `notebooks`. For example, `notebooks/my_analysis.ipynb`.
 
-3. Execute the Analysis:
-   Run through the notebook cells sequentially. Each cell contains explanations and code for different stages of the analysis.
+3. **Configure Analysis Parameters**: 
+   In your analysis notebook (for example, `notebooks/my_analysis.ipynb`) locate the configuration cells and adjust the parameters according to your specific analysis requirements.
 
-4. Review Results: 
-   After execution, find your output data and visualizations in the `data/output_data` directory. The notebook will also display key results and graphs inline.
+4. **Execute the Analysis**:
+   Run through the notebook cells sequentially. Each cell contains explanations and code for different stages of the analysis. During the analysis run, auxiliary files related to topography (Source: [NASA](https://portal.opentopography.org/raster?opentopoID=OTSRTM.082015.4326.1)) and population (Source: [Worldpop](https://www.worldpop.org/)) in the area covered by the points of interest and cell sites will automatically be downloaded into the `data/input_data/<country-code>` folder (in sub-folders called `srtm1` and `population`). You do not need to directly manipulate these files.
 
-5. Iterate if Necessary: 
+5. **Review Results**: 
+   After execution, find your output data and visualizations in the `data/output_data/<country-code>` directory. The notebook will also display key results and graphs inline.
+
+6. **Iterate if Necessary**: 
    Based on your initial results, you may want to adjust parameters or input data. Simply update the relevant sections and re-run the affected cells or the entire notebook.
