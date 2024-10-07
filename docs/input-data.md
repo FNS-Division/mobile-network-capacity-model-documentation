@@ -39,9 +39,11 @@ This table should include the following columns:
 | 86818972-6723-46e5-9916-af01c2be5383 | 38.8705 | 1.384335 | 4G |
 | 54f7a596-d5a1-4031-84c5-5d4b61b7cbca | 38.8573 | 1.384546 | 4G |
 
-## Visibility data
+## Visibility data (optional)
 
-You also need to provide data on the visibility status between each point of interest and cell site. Each row in this table is a POI-cell site pair, where there is line-of-sight visibility between the two objects. The visibility table should include the following columns:
+Optionally, you can also provide data on the visibility status between each point of interest and cell site. If this is not provided, then the visibility status is automatically checked by the tool in the background.
+
+Each row in this table is a POI-cell site pair, where there is line-of-sight visibility between the two objects. If provided, the visibility table should include the following columns:
 
 - ict_id: A unique identifier for each cell site
 - poi_id: A unique identifier for each point of interest
