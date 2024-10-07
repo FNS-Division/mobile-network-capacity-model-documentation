@@ -54,7 +54,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#cell-site-data">Cell site data</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#visibility-data">Visibility data</a>
+    <li class="toctree-l2"><a class="reference internal" href="#visibility-data-optional">Visibility data (optional)</a>
     </li>
     </ul>
                 </li>
@@ -195,8 +195,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="visibility-data">Visibility data</h2>
-<p>You also need to provide data on the visibility status between each point of interest and cell site. Each row in this table is a POI-cell site pair, where there is line-of-sight visibility between the two objects. The visibility table should include the following columns:</p>
+<h2 id="visibility-data-optional">Visibility data (optional)</h2>
+<p>Optionally, you can also provide data on the visibility status between each point of interest and cell site. If this is not provided, then the visibility status is automatically checked by the tool in the background.</p>
+<p>Each row in this table is a POI-cell site pair, where there is line-of-sight visibility between the two objects. If provided, the visibility table should include the following columns:</p>
 <ul>
 <li>ict_id: A unique identifier for each cell site</li>
 <li>poi_id: A unique identifier for each point of interest</li>
