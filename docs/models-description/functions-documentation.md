@@ -155,7 +155,7 @@ This method performs spatial analysis and capacity assessment for cell sites by 
     - Available cell capacity
     - Capacity sufficiency check
 
-- The output is a tuple containing:'
+- The output is a tuple containing:
     - A dictionary of GeoDataFrames:
         - 'buffers': Buffer areas around cell sites
         - 'rings': Ring areas around cell sites
